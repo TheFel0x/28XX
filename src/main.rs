@@ -1,7 +1,7 @@
 fn main() {
-    println!("{}",string_to_braille("meow"));
-    println!("{}",braille_to_text("⡭⡥⡯⡷"));
-    println!("{}",braille_to_text(&string_to_braille("meow")));
+    println!("{}",string_to_braille("test"));
+    println!("{}",braille_to_text("⡴⡥⡳⡴"));
+    println!("{}",braille_to_text(&string_to_braille("test")));
 }
 
 fn byte_to_braille(by:u8) -> u16 {
