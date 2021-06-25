@@ -25,3 +25,14 @@ Examples:
 |`⣿` | `(U+)28FF`| <--> | `FF` | `11111111` |
 |`⠀` | `(U+)2800`| <--> | `00` | `00000000` |
 |`⡩` | `(U+)2869`| <-->　| `69` | `01101001` |
+
+
+# TODO
+
+- ~~braille to text/byte translation~~ (done)
+- ~~byte/text to braille translation~~ (done)
+- take cli input
+- files -> braille
+- text input -> braille
+- braille -> files
+- braille -> text / hexadecimal
