@@ -1,6 +1,6 @@
 # 28XX
 
-28XX represents bytes as Unicode Braille characters. In order to achieve this a `28` is added infront of the hexadecimal representation of a byte. The UTF-16 interpretation of the 2-byte combination is then a braille symbol.
+28XX represents bytes as [Unicode Braille characters](https://www.unicode.org/charts/PDF/U2800.pdf). In order to achieve this a `28` is added infront of the hexadecimal representation of a byte. The UTF-16 interpretation of the 2-byte combination is then a braille symbol.
 
 It supports byte to braille, as well as braille to byte translation.
 It can be used to visualize binary or to reduce character count when transmitting bytes in a text-only way.
