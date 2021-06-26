@@ -1,7 +1,16 @@
+use std::env;
+use std::io;
+use std::io::prelude::*;
+use std::fs::File;
+
 fn main() {
-    println!("{}",string_to_braille("test"));
-    println!("{}",braille_to_text("⡴⡥⡳⡴"));
+    let args: Vec<String> = env::args().collect();
+    println!("{:?}", args);
+    
+    println!("{}",string_to_braille("this is a test"));
+    println!("{}",braille_to_text("⡴⡨⡩⡳⠠⡩⡳⠠⡡⠠⡴⡥⡳⡴"));
     println!("{}",braille_to_text(&string_to_braille("test")));
+    print_file_as_braille("main.rs");
 }
 
 fn byte_to_braille(by:u8) -> u16 {
@@ -38,4 +47,28 @@ fn braille_to_bytes(s: &str) -> Vec<u8> {
 
 fn braille_to_text(s: &str) -> String {
     String::from_utf8_lossy(&braille_to_bytes(s)).to_string()
+}
+
+fn print_file_as_braille(loc: &str) -> io::Result<()> {
+    let mut f = File::open(loc)?;
+    let mut buffer = Vec::new();
+    f.read_to_end(&mut buffer)?;
+
+    let mut vec: Vec<u16> = Vec::new();
+
+    let mut pos = 0;
+    for b in buffer {
+        if pos > 14 {
+            vec.push(byte_to_braille(b));
+            println!("{}",String::from_utf16_lossy(&vec));
+            vec.clear();
+            pos = 0;
+        }
+        else {
+            vec.push(byte_to_braille(b));
+            pos = pos + 1;
+        }
+    }
+    println!();
+    Ok(())
 }
