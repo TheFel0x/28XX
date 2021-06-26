@@ -10,7 +10,7 @@ fn main() {
     println!("{}",string_to_braille("this is a test"));
     println!("{}",braille_to_text("⡴⡨⡩⡳⠠⡩⡳⠠⡡⠠⡴⡥⡳⡴"));
     println!("{}",braille_to_text(&string_to_braille("test")));
-    print_file_as_braille("main.rs");
+    print_file_as_braille("test");
 }
 
 fn byte_to_braille(by:u8) -> u16 {
